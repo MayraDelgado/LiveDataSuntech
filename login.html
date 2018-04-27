@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ☀ L!veData Suntech</title>
+
+    <link href="styles/geotab.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+    />
+    <scrip src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></scrip>
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+</head>
+
+<body ng-app="WatchDogApp">
+    <header>
+        <!--div class="container"-->
+        <div class="jumbotron" style="background-color: rgb(150, 22, 22)">
+            <center>
+                <div class="page-header">
+                    <h1 style="color: rgb(226, 231, 231) ">L!ve Data
+                        <small style="color: rgb(204, 203, 203)">Suntech ☀</small>
+                    </h1>
+                </div>
+            </center>
+        </div>
+        <!--/div-->
+
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" style="background-color: rgb(230, 227, 227)">
+        <center>
+            <div id="signin-content" ng-show="!activeSession"></div>
+        </center>
+        <div id="example-content" ng-show="activeSession" ng-controller="DataController">
+            <br>
+            <br>
+            <br>
+            <div class="panel panel-default">
+                <div class="container">
+                    <div class="row">
+                        <br>
+                        <div class="col-sm-4">
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Device Id</span>
+                                <input id="msg" type="text" class="form-control" name="msg" placeholder="...">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">Del:
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="datetimepicker1">
+                                                <input type="text" class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker();
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">Al:
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="datetimepicker2">
+                                                <input type="text" class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker2').datetimepicker();
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-sm-1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-primary active">Consultar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--inicia tabla-->
+            <div class="jumbotron">
+                <div class="container">
+                    <p>Datos de consulta:</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Device Id</th>
+                                <th>SunTechPanicButton</th>
+                                <th>SunTechCalls</th>
+                                <th>Device Id</th>
+                                <th>SunTechPanicButton</th>
+                                <th>SunTechCalls</th>
+                                <th>etc...</th>
+                                <th>etc..</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                                <td>sd</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                                <td>wd</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                                <td>as</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--fin tabla-->
+        </div>
+    </div>
+</body>
+
+</html>
